@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import UsersList from './Components/UsersList';
 import Login from "./Components/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 import userContext from './Utils/UserContext'
+import {ErrorHandle} from './Components/ErrorHandle'
 
 function App() {
   const [user, setUser] = useState(null);
@@ -13,8 +13,16 @@ function App() {
       <BrowserRouter>
         <userContext.Provider value={{ user, setUser }}>
           <Routes>
-            <Route exact path="/" element={<Login />} />
-            <Route path="/home" element={<UsersList />} />
+            <Route
+              exact
+              path="/"
+              element={
+                <ErrorHandle>
+                  <Login />
+                </ErrorHandle>
+              }
+            />
+            <Route path="/home" element={<ErrorHandle><UsersList /></ErrorHandle>} />
           </Routes>
         </userContext.Provider>
       </BrowserRouter>
