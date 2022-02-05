@@ -1,0 +1,18 @@
+.App {
+  /* text-align: center; */
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+button {
+  padding: 8px 19px;
+  border-radius: 5px;
+  background: #7e6d6d;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+}

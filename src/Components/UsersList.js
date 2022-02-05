@@ -1,17 +1,18 @@
 import { useEffect, useState, useContext, useCallback } from "react";
-import "./UsersList.css";
+import styles from "./UsersList.module.css";
 import UserDetails from "./UserDetails";
 import UserContext from "../Utils/UserContext";
 import { useNavigate } from "react-router-dom";
+import cx from "classnames";
 
 const Loader = () => (
   <div>
-    <div className="loader">
-      <div className="first loaderContainer" />
-      <div className="detailsLoader">
-        <div className="detail1 loaderContainer" />
-        <div className="detail2 loaderContainer" />
-        <div className="detail3 loaderContainer" />
+    <div className={styles.loader}>
+      <div className={cx(styles.first, styles.loaderContainer)} />
+      <div className={styles.detailsLoader}>
+        <div className={cx(styles.detail1, styles.loaderContainer)} />
+        <div className={cx(styles.detail2, styles.loaderContainer)} />
+        <div className={cx(styles.detail3, styles.loaderContainer)} />
       </div>
     </div>
   </div>
@@ -71,14 +72,14 @@ function UsersList() {
     navigate("/");
   };
   return (
-    <div className="userList">
-      <div className="header">
-        <div className="userTitle">User List</div>
-        <div className="logout">
+    <div className={styles.userList}>
+      <div className={styles.header}>
+        <div className={styles.userTitle}>User List</div>
+        <div className={styles.logout}>
           <button onClick={() => callLogout()}>Logout</button>
         </div>
       </div>
-      <div className="allUsers">
+      <div className={styles.allUsers}>
         {users.map((user, index) => (
           <UserDetails key={index} user={user} index={index} />
         ))}

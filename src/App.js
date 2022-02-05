@@ -1,10 +1,10 @@
-import './App.css';
-import UsersList from './Components/UsersList';
+import "./App.module.css";
+import UsersList from "./Components/UsersList";
 import Login from "./Components/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
-import userContext from './Utils/UserContext'
-import {ErrorHandle} from './Components/ErrorHandle'
+import userContext from "./Utils/UserContext";
+import { ErrorHandle } from "./Components/ErrorHandle";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,7 +22,14 @@ function App() {
                 </ErrorHandle>
               }
             />
-            <Route path="/home" element={<ErrorHandle><UsersList /></ErrorHandle>} />
+            <Route
+              path="/home"
+              element={
+                <ErrorHandle>
+                  <UsersList />
+                </ErrorHandle>
+              }
+            />
           </Routes>
         </userContext.Provider>
       </BrowserRouter>

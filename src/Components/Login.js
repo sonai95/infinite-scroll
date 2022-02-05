@@ -1,4 +1,4 @@
-import "./Login.css";
+import styles from "./Login.module.css";
 import UserContext from "../Utils/UserContext";
 import { useContext, useState } from "react";
 import { useEffect } from "react/cjs/react.development";
@@ -10,22 +10,22 @@ function Login() {
   const [pwd, setPwd] = useState("");
   let navigate = useNavigate();
   useEffect(() => {
-      if (user || localStorage.getItem("userDetails")) {
-        navigate("/home");
-      }
-  }, [])
+    if (user || localStorage.getItem("userDetails")) {
+      navigate("/home");
+    }
+  }, []);
   useEffect(() => {
-      if(user) {
-        localStorage.setItem("userDetails", { uName, pwd });
-        navigate("/home");
-      }
+    if (user) {
+      localStorage.setItem("userDetails", { uName, pwd });
+      navigate("/home");
+    }
   }, [user]);
   return (
-    <div className="loginPage">
-      <div className="loginOption">
-        <div className="optionHeader">Login</div>
+    <div className={styles.loginPage}>
+      <div className={styles.loginOption}>
+        <div className={styles.optionHeader}>Login</div>
         {user?.uName}
-        <div className="optionBody">
+        <div className={styles.optionBody}>
           <div>
             <input
               value={uName}
@@ -42,7 +42,7 @@ function Login() {
             />
           </div>
         </div>
-        <div className="optionFooter">
+        <div className={styles.optionFooter}>
           <button onClick={() => setUser({ uName, pwd })}>Login</button>
         </div>
       </div>
