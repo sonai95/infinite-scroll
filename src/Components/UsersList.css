@@ -1,0 +1,100 @@
+.userList {
+  margin: 0px auto;
+}
+.userTitle {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 10px;
+  text-align: center;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: #180505;
+  color: white;
+}
+.logout {
+  margin-right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .allUsers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 33px;
+    grid-row-gap: 16px;
+  }
+  .userList {
+    width: 800px;
+  }
+}
+.allUsers {
+}
+.loaderWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 132px;
+  justify-content: space-between;
+  padding: 20px;
+}
+.first,
+.detail1,
+.detail2,
+.detail3 {
+  border-radius: 100px;
+}
+
+.first {
+  width: 120px;
+  height: 120px;
+  background: #c4c4c4;
+  opacity: 0.5;
+}
+
+.left {
+  width: 20%;
+  border-radius: 100px;
+  opacity: 0.2;
+}
+.loaderContainer {
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: linear-gradient(to right, #c4c4c4 8%, #dddddd 18%, #c4c4c4 33%);
+  margin-bottom: 10px;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -800px 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}
+
+.loader {
+  display: flex;
+}
+.detailsLoader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.detail1 {
+  width: 150px;
+  height: 20px;
+}
+.detail2 {
+  width: 120px;
+  height: 20px;
+}
+.detail3 {
+  width: 100px;
+  height: 20px;
+}

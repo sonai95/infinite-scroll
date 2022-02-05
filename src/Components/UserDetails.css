@@ -1,0 +1,76 @@
+.users {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  margin-top: 20px;
+  position: relative;
+  padding: 15px;
+  transition: 500ms ease;
+  cursor: pointer;
+}
+.users:hover {
+  box-shadow: 0 0 5px #aa9d9d;
+  border-radius: 10px;
+  transition: 500ms ease;
+}
+.userDetails {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.userOtherDtls {
+  margin-left: 30px;
+}
+.userImg {
+  display: flex;
+  border-radius: 60px;
+  overflow: hidden;
+  box-shadow: 0 0 5px #aa9d9d;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+}
+.image {
+  width: 100px;
+  border-radius: 50px;
+}
+.userName {
+    font-size: 20px;
+    font-weight: 600;
+}
+.userAge {
+    font-size: 14px;
+}
+.userPhone {
+    font-size: 14px;
+}
+@media screen and (max-width: 698px) {
+    .userName {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .userAge {
+        font-size: 12px;
+    }
+    .userPhone {
+        font-size: 12px;
+    }
+    .popupDtls {
+        display: none !important;
+    }
+}
+.popupDtls {
+    position: absolute;
+    background: #e0e09a;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1;
+    right: -250px;
+}
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
