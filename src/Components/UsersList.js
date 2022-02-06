@@ -25,6 +25,7 @@ function UsersList() {
   const [bottomOfPage, setbottomOfPage] = useState(false);
   const [loaded, setLoad] = useState(false);
   const { user, setUser } = useContext(UserContext);
+  const [scroller, showScroller] = useState(false);
   let navigate = useNavigate();
 
   const handleScrollEvent = () => {
@@ -44,6 +45,16 @@ function UsersList() {
       window.removeEventListener("scroll", handleScrollEvent);
     };
   }, []);
+
+  useEffect(() => {
+    document.addEventListener("scroll", (event) => {
+      if (window.pageYOffset > 100) {
+        showScroller(true);
+      } else {
+        showScroller(false);
+      }
+    });
+  }, [])
 
   useEffect(() => {
     setbottomOfPage(visible + scrollY >= pageHeight - 50);
@@ -71,6 +82,13 @@ function UsersList() {
     setUser(null);
     navigate("/");
   };
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+  }
   return (
     <div className={styles.userList}>
       <div className={styles.header}>
@@ -79,6 +97,10 @@ function UsersList() {
           <button onClick={() => callLogout()}>Logout</button>
         </div>
       </div>
+      {scroller ? <div className={styles.scrollUp} onClick={scrollTop}>
+        <i className={cx(styles.scrollIcon, "fas fa-chevron-up")}></i>
+      </div> : <></>}
+
       <div className={styles.allUsers}>
         {users.map((user, index) => (
           <UserDetails key={index} user={user} index={index} />

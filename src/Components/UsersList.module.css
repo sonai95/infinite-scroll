@@ -29,7 +29,22 @@
     width: 800px;
   }
 }
-.allUsers {
+@media screen and (max-width: 768px) {
+  .scrollUp {
+    right: 20px;
+  }
+}
+.scrollUp {
+  position: fixed;
+  bottom: 20px;
+  z-index: 1;
+  margin-left: 750px;
+}
+.scrollIcon {
+  padding: 11px;
+  border-radius: 50px;
+  box-shadow: 0 0 5px #aa9d9d;
+  cursor: pointer;
 }
 .loaderWrapper {
   display: flex;
